@@ -1,2 +1,0 @@
-downloads\100\PairProject2018\1\src\WordCount
-downloads\4\PairProject2018\4\src\WordCount\WordCount

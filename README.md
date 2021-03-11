@@ -1,12 +1,25 @@
 ## 自动化测试程序（基于WordCount作业）
 
-本自动化测试的程序用于自动化测试[WordCount作业](https://edu.cnblogs.com/campus/fzu/FZUSESPR21/homework/11672)，采用Java开发（基于jdk1.8+），采用Maven管理项目。
+本自动化测试的程序用于自动化测试[WordCount作业](https://edu.cnblogs.com/campus/fzu/FZUSESPR21/homework/11672)，采用Java开发（基于jdk1.8+），基于Maven来管理项目。
+
+
+
+## 支持的语言和开发进度
+
+| 语言   | 进度             |
+| ------ | ---------------- |
+| Java   | 已测试并投入运行 |
+| C++    | 开发完毕，待测试 |
+| Python | 开发中           |
+| NodeJS | 待开发           |
+
+
 
 ## 实现的功能
 
 ### 克隆项目
 
-从指定仓库克隆项目，由于访问Github的网络经常不稳定，也支持我们先预备好项目的仓库，不直接从Github下载。
+从指定仓库克隆项目，由于访问Github的网络经常不稳定，也支持我们先预备好项目的仓库，不从Github实时下载。
 
 ### 生成测试数据
 
@@ -17,7 +30,7 @@
 
 这里的编译和以下的运行都是有如下两个前置要求：
 
-1. 作业中必须明确要求入口文件的文件名是什么，以Java为例，就是Main方法所在的类文件的文件名是什么，以WordCount作业为例，我们要求学生的主函数必须定义在src目录下一个WordCount.java文件中，因为这样我们才知道要运行哪个文件来执行测试用例。
+1. 作业中必须明确要求入口文件的文件名是什么，以Java为例，就是Main方法所在的类文件的文件名是什么，以WordCount作业为例，我们要求学生的主函数必须定义在src目录下一个名叫WordCount.java文件中，因为这样我们才知道要运行哪个文件来执行测试用例。
 2. 助教在自己机器上运行的时候，必须要有对应语言的编译和运行的环境且要规定好一致的语言版本。否则编译这一关会有很多问题导致无法运行学生的代码。
 
 编译时候会设置对应的超时时间，不同的语言可以设置不一样的编译超时时间，以Java为例，默认编译超时时间是5秒钟
@@ -45,60 +58,105 @@
 
 ## 效果预览
 
-| StudentNo | Score | Score1 | Time1 | Score2 | Time2 | Score3 | Time3 | Score4 | Time4 | Score5 | Time5 | Score6 | Time6 | Score7 | Time7  | Score8 | Time8 | Score9 | Time9 | Score10 | Time10 | commit_times | commit_details                                               |
-| ---------- | ----- | ------ | ----- | ------ | ----- | ------ | ----- | ------ | ----- | ------ | ----- | ------ | ----- | ------ | ------ | ------ | ----- | ------ | ----- | ------- | ------ | ------------ | ------------------------------------------------------------ |
-| 01130      | 100   | 10     | 197   | 10     | 204   | 10     | 280   | 10     | 203   | 10     | 356   | 10     | 202   | 10     | 407    | 10     | 355   | 10     | 343   | 10      | 343    | 24           | {"11":"优化代码格式","22":"代码规范\n","12":"使用命令行\n","23":"读取文件功能\n","13":"对WordCount进行代码格式优化并使统计结果输出到文件里\n","14":"将输出十个频率最高单词功能封装分离\n","15":"将统计单词功能封装分离\n","16":"将统计字符和统计行数功能封装分离到Lib\n","17":"新增一个Core模块\n","18":"新增统计文件中各单词的出现次数（频率最高的10个）（\n","19":"新增行数统计功能\n","0":"修复输入文件行数不足十行会抛出异常的bug","1":"Update  Lib.java","2":"修复了下载到本地代码格式发生变化的bug","3":"修复了下载到本地后代码格式变化的bug","4":"修改getSortedList函数","5":"修改writeFile函数","6":"Create  README.md","7":"改进统计行数的性能","8":"Update  Lib.java","9":"修改单词数和行数顺序相反的bug","20":"更进字符统计功能和新增单词统计功能\n","10":"重新优化代码格式","21":"完成统计字符功能\n"} |
-| 01230      | 100   | 10     | 171   | 10     | 166   | 10     | 227   | 10     | 170   | 10     | 322   | 10     | 184   | 10     | 366    | 10     | 300   | 10     | 308   | 10      | 290    | 15           | {"11":"字符数统计charNumCount\n","12":"添加readFile函数\n","13":"从命令行参数获取文件名,创建Lib处理类\n","14":"新建项目\n","0":"更新部分细节","1":"Edit  README.md","2":"代码规范","3":"修复word排序错误的bug\n","4":"修复word数错误的bug\n","5":"终版\n","6":"输出函数writeFile\n","7":"对单词排序\n","8":"用Map存取单词频数\n","9":"统计单词数wordNumCount\n","10":"行数统计lineNumCount\n"} |
-| 01334      | 100   | 10     | 175   | 10     | 182   | 10     | 212   | 10     | 184   | 10     | 245   | 10     | 182   | 10     | 259    | 10     | 243   | 10     | 263   | 10      | 246    | 23           | {"11":"refactor:  版本v1.1多线程优化完成\n","22":"feat:  实现命令行输入以及输入的合法性判断\n","12":"refactor:  优化有效行数统计\n\n加入线程池\n","13":"refactor:  优化字符数统计\n\n文件中只有ascii字符，直接输出内容的长度即可\n","14":"refactor:  优化文件输入输出\n\n添加mmap读取文件，优化缓冲区初始大小\n","15":"fix:  修复一些小bug，v1.1\n","16":"feat:  实现需求的所有功能，v1.0\n\n整合统计字符数、单词数、行数、top10单词，并输出到文件\n","17":"feat:  实现计算文本top10单词及个数\n\n使用HashMap记录每一个单词的个数，然后转为List排序\n","18":"feat:  实现计算文本单词数\n\n单线程遍历文本\n","19":"feat:  实现计算文本有效行数\n\n单线程，正则表达式\n","0":"fix:  修复了一些bug","1":"doc:  更新README文档","2":"fix: 修复一些bug\n","3":"docs:  更新代码规范文档\n","4":"docs:  添加项目的信息，更新readme文件\n","5":"fix:  修复一些bug\n","6":"refactor:  优化有效行数的计算\n\n去掉正则表达式的使用\n","7":"refactor:  多线程优化\n\n有效行数、map统计进行多线程优化\n","8":"fix:  修复一些bug\n","9":"refactor:  正则表达式优化\n\n对行数、单词正则表达式提取进行优化\n","20":"feat:  实现文本字符数计算\n\n单线程遍历文本\n","10":"feat:  增加字典树\n\n使用字典树统计单词词频\n","21":"feat:  实现文件输入输出\n\n使用缓存流，缓存空间为8192字节\n"} |
-| 01215      | 100   | 10     | 128   | 10     | 143   | 10     | 188   | 10     | 153   | 10     | 232   | 10     | 133   | 10     | 255    | 10     | 218   | 10     | 218   | 10      | 232    | 14           | {"11":" - 添加单词校验功能\n *  新建WordProcessor类处理文本单词，包含单词校验函数\n","12":" - 统计文章的有效行数\n *  新增EffectiveLineCounter类统计行数\n *修改文件读写编码\n","13":" 实现文件字符数量统计\n *添加文件的ASCII字符数量统计功能\n *修改项目文件结构\n","0":" -  完善学号文件夹下的README.md\n","1":" - 性能优化修改\n *  StringBuffer.append改为StringBuilder.append\n * InputStream.read改为BufferedReader.read\n  * TreeMap改为HashMap\n * 修复main函数最后一行不统计的bug\n","2":" -  单元测试中做的修改完善\n","3":" -  文件输入处理\n","4":" - 结果文件输出实现\n","5":" -  WordCount核心模块封装\n *添加WordCountCore类提供统计字符数、单词数、最多的10个单词及其词频功能\n","6":"  - 将单词统计修改为相同单词也计入总数\n","7":" - 实现单词排序功能\n *  单词排序按照单词频数降序、字典序升序排列\n * 修复单词总数统计的反向统计bug\n","8":" -  实现统计所有合法单词频数功能\n * 统计合法单词的出现次数总和，统计时不区分大小写\n","9":" -  实现统计各个单词独立的出现频数功能\n * 统计单词各自出现的次数，单词不区分大小写\n","10":" -  实现从文件中抽离单词功能\n * 为WordProcessor添加函数，将文件中的字符组成仅含字母和数字的字符串\n"} |
-| 01234      | 100   | 10     | 202   | 10     | 208   | 10     | 256   | 10     | 204   | 10     | 351   | 10     | 204   | 10     | 363    | 10     | 300   | 10     | 302   | 10      | 301    | 21           | {"11":"改bug\n","12":"seventh  commit\n","13":"Update  README.md\n","14":"Update  README.md\n","15":"Update  WordCount.java\n","16":"fifth commit\n","17":"Update  WordCount.java\n","18":"third  commit\n","19":"second  commit\n","0":"Update  CountCore.java\n","1":"bug修改\n","2":"bug修改\n","3":"排除\\r\n","4":"bug修改\n","5":"输出方式修改\n","6":"性能优化\n","7":"完善README\n","8":"异常处理\n","9":"Update  CountCore.java\n","20":"first  commit\n","10":"排序算法改进\n"} |
-| 01222      | 100   | 10     | 201   | 10     | 205   | 10     | 273   | 10     | 204   | 10     | 448   | 10     | 219   | 10     | 429    | 10     | 416   | 10     | 399   | 10      | 395    | 15           | {"11":"Revert \"增加:WordCount类 删除：gitIgnore文件\"\n\nThis reverts  commit  40d5d260c8049ea7efef38872bd983a1793696eb.\n","12":"增加:WordCount类   删除：gitIgnore文件\n\n新增WordCount类实现控制台控制输入，完成将文件内容转为字符串。\n之前不太清楚gitignore文件存放位置，将其传到commit了，现删除。\n","13":"增加代码规约\n\n增加代码规约\n","14":"增加个人文件夹\n\n增加了个人文件夹，以及内部目录结构\n","0":"增加:编辑README  修改:输出文件中的格式\n\n增加:编辑README  修改:输出文件中的格式\n","1":"修改：设置了文件输出编码为utf-8\n\n修改：设置了文件输出编码为utf-8\n","2":"更新：修改bug\n\n更新：修改bug\n","3":"更新：设置读取文件编码方式为utf-8\n\n更新：设置读取文件编码方式为utf-8\n","4":"更新：将main函数细化成多个函数  增加：输出函数执行时间\n\n更新：将main函数细化成多个函数   增加：输出函数执行时间\n","5":"增加：WordCount类输出结果到文件 修改：Lib类map排序\n\n增加：WordCount类输出结果到文件   修改：Lib类map排序，之前未考虑值相同时按ke的字典序\n","6":"修改：改bug\n\n改bug\n","7":"增加：返回总字符数函数\n\n增加：返回总字符数函数\n","8":"增加：返回words和频率最高单词\n\n增加：返回words和频率最高单词\n","9":"增加：Lib类\n\n增加Lib类，并完成构造函数和统计行数函数\n","10":"Revert  \"Revert \"增加:WordCount类   删除：gitIgnore文件\"\"\n\nThis reverts commit  d77428f9367ca7f15df2b910e9d7ea631a6b7f1c.\n"} |
-| 01438      | 80    | 8      | 877   | 8      | 953   | 8      | 6684  | 8      | 830   | 8      | 39784 | 8      | 992   | 8      | 49978  | 8      | 29634 | 8      | 27933 | 8       | 26732  | 21           | {"11":"commit 10\n","12":"commit  9\n","13":"commit 8\n","14":"Commit  7\n","15":"commit 6\n","16":"commit  5\n","17":"commit 4\n","18":"commit  3\n","19":"commit 2\n","0":"Update  README.md","1":"Merge branch 'main' of  https://github.com/Chutiiing/PersonalProject-Java into main\n","2":"Commit  14 ：输出结果补充添加空格\n","3":"Update  README.md","4":"Merge branch 'main' of  https://github.com/Chutiiing/PersonalProject-Java into  main\n","5":"commit 13\n","6":"Delete  README.md","7":"Delete  codestyle.md","8":"Commit  13\n","9":"commit 12\n","20":"commit  1\n","10":"commit 11\n"} |
-| 01321      | 80    | 8      | 450   | 8      | 459   | 8      | 984   | 8      | 442   | 8      | 1785  | 8      | 455   | 8      | 2221   | 8      | 1603  | 8      | 1564  | 8       | 1528   | 12           | {"0":"增加抛出异常的操作\n","11":"初始化学号命名的文件夹\n","1":"更新README文档\n","2":"增加输出结果到文件功能\n","3":"解决了单词存入Map，单词前会多一个'\\n'的bug\n","4":"增加统计文件中各单词的出现次数的功能\n","5":"增加统计单词总数功能\n","6":"统计文件的有效行数\n","7":"增加处理文件内容的类，实现统计总字符数\n","8":"可读入命令行参数\n","9":"更新具体代码规范\n","10":"更新具体代码规范\n"} |
-| 01226      | 70    | 7      | 193   | 7      | 201   | 7      | 300   | 7      | 200   | 7      | 399   | 7      | 199   | 7      | 430    | 7      | 378   | 7      | 379   | 7       | 376    | 16           | {"11":"second code commit and update  README.md\n","12":"first code commit and add  .gitignore\n","13":"Update codestyle.md\n\nversion  1","14":"Create codestyle.md","15":"Create  README.md","0":"thirteen code commit and update  README.md\n","1":"twelfth code commit and update  README.md\n","2":"eleventh code commit and update  README.md\n","3":"tenth code commit and update  README.md\n","4":"ninth code commit and update  README.md\n","5":"eighth code commit and update  README.md,codestyle.md\n","6":"seventh code commit and update  README.md\n","7":"sixth code commit and update  README.md\n","8":"fifth code commit and update  README.md\n","9":"fourth code commit and update  README.md\n","10":"third code commit and update  README.md\n"} |
-| 01432      | 60    | 3      | 1298  | 3      | 1308  | 3      | 11449 | 8      | 1168  | 8      | 45419 | 8      | 1313  | 3      | 94370  | 8      | 36456 | 8      | 38949 | 8       | 36663  | 16           | {"11":"重新组织目录结构\n","12":"Update  codestyle.md\n\n更新了代码规范。\n","13":"Copied from  example\n","14":"Delete  221801432","15":"Create 221801432","0":"Delete  .gitignore\n","1":"更正了输出格式\n","2":"封装方法、删除中文注释\n","3":"Merge  branch 'main' of https://github.com/Nokill69/PersonalProject-Java into  main\n","4":"新增 统计有效行数、统计词频\n","5":"Update  README.md","6":"完善了统计单词功能\n\n现在能将单词存入ArrayList中，重复的单词不会添加，只会增加词频\n","7":"新增  将单词都转化为小写\n","8":"Update  WordCount.java\n","9":"Update WordCount.java\n\n完成了统计单词数量的功能\n","10":"实现第1个功能\n\n实现了统计字符功能\n"} |
-| 01429      | 60    | 6      | 155   | 6      | 170   | 6      | 221   | 6      | 151   | 6      | 283   | 6      | 169   | 6      | 328    | 6      | 288   | 6      | 266   | 6       | 267    | 21           | {"11":"Delete  221801429.iml","12":"Delete  221801429/out/production/221801429  directory","13":"Delete 221801429/.idea  directory","14":"Delete  1.txt","15":"初步功能\n\n单词频率功能尚未完成\n","16":"Update  codestyle.md\n","17":"Update  codestyle.md\n","18":"Create  codestyle.md\n\n个人代码风格\n","19":"Update  README.md","0":"Update README.md\n","1":"Update  README.md\n\n编写readme文档\n","2":"小改动\n","3":"稍微修改了代码\n","4":"程序完善\n\n删除了函数中用于测试的代码\n","5":"需求功能基本完成\n\n异常处理改进、单元测试完善待进行\n","6":"写入文件功能完成\n\n命令行功能待调试，写入文件功能初步完成\n","7":"控制台输出结果测试\n\n输出文件、命令行参数待完成\n","8":"基本功能初步完成\n\n文件输出待更新\n","9":"Revert  \"Revert \"初步功能\"\"\n\nThis reverts commit 3dd528960e843d0730c01f80bd08163863353c92.\n","20":"Create  README.md","10":"Revert \"初步功能\"\n\nThis  reverts commit 4759a9a5724d0957b62ca0b02e12d524f3513dba.\n"} |
-| 01115      | 40    | 8      | 5046  | 8      | 5182  | 8      | 39561 | 8      | 4483  | 0      | -2    | 8      | 5053  | 0      | -2     | 0      | -2    | 0      | -2    | 0       | -2     | 13           | {"11":"添加统计字符数功能\n","12":"first  commit\n","0":"修正统计行数功能\n","1":"完善异常处理\n","2":"编写了README文件\n","3":"完善了程序的注释\n","4":"修复了一些错误\n","5":"把各功能封装到Lib.java内\n","6":"修正统计有效行数功能\n","7":"添加统计各单词出现次数功能\n","8":"添加统计单词总数功能\n","9":"添加统计有效行数功能\n","10":"Update  codestyle.md\n\n完善代码风格文档\n"} |
-| 01114      | 35    | 3      | 185   | 8      | 171   | 3      | 247   | 3      | 163   | 3      | 311   | 3      | 156   | 3      | 342    | 3      | 291   | 3      | 282   | 3       | 296    | 30           | {"22":"feat:get total  words\n","23":"feat:get  characters\n","24":"refactor:add function  closeInputStream\n","25":"feat:get  lines\n","26":"定义成员变量\n","27":"代码规范最终版本  1\n","28":"test  .gitignore\n","29":"add 221801114  directory\n","10":"refactor:change  inputstream\n","11":"refactor:delete print  code\n","12":"refactor:change  outputstream\n","13":"feat:add  outputstream\n","14":"refactor:change inputstream of  count word frequency\n","15":"refactor:change inputstream  of get word number\n","16":"refactor:change inputstream  of get character number\n","17":"refactor:change  inputstream of get line number\n","18":"refactor:add  Lib.java\n","19":"feat:sort word frequency\n","0":"最终版本2\n","1":"最终版本\n","2":"update  codestyle\n","3":"fix:change output  order\n","4":"fix:add splite  code\n","5":"fix:change int to  long\n","6":"fix:dispose  \\t\n","7":"refactor:change  inputstream\n","8":"edit  README.md\n","9":"fix:dispose line  break\n","20":"feat:judge word\n","21":"feat:count  word frequency\n"} |
-| 01410      | 35    | 3      | 2317  | 3      | 2457  | 3      | 16096 | 3      | 2218  | 3      | 67188 | 3      | 2523  | 3      | 113174 | 3      | 47754 | 8      | 46942 | 3       | 45099  | 13           | {"11":"countLine\n\n可以实现读入文件以及通过Function类来计算任何包含非空白字符的有效行数\n","12":"write  codestyle\n\n写下了代码规范以及复制了example的目录结构到学号文件夹下\n","0":"RADME.md的书写\n\n对项目中的RADME.md的项目描述书写，以及更改了整个代码的编码为UTF-8，原本是GBK所以有乱码。将写代码时注释掉的测试语句删除，让代码看起来更简洁\n","1":"complete  function\n\n完善所有功能，实现按格式输出到指定文本，可以通过命令行窗口(cmd)直接输入参数来运行程序\n","2":"toLower\n\n完善了单词的读入，原本是按一个单词读入的（如123file的后面的file也会读入），现在是按分隔符读入，读入完再判断是不是一个单词，并且最后以小写的方式存入\n","3":"modify  CompareRule\n\n完善整个排序功能，可以实现按照词频以及字典序排序，并且修改了原本的bug（符号使用错误导致0和9没读入）和逻辑不够缜密导致最后一个单词后如果不是分隔符会没办法存入的bug\n","4":"add  CompareRule\n\n添加一个新的比较规则类用于使用Colletions的sort方法来实现对频率最高的10个词的排序（还未实现同频率时按照字典序排）\n","5":"add  AddFrequent  Function\n\n修改FindWord函数，返回值变为返回一个int类型的查找到重复单词的下标。在Word类中增加一个函数可以自增频率。以此找到重复单词后就可以直接通过下标来自增词频。再次符合代码规范，改掉了一些变量命名。\n","6":"add  FindWord  function\n\n新增一个FindWord函数，用于查找vector容器中是否存在单词，返回值为boolean类型\n","7":"add  Word  Class\n\n为了存储方便新编写了一个单词类用于存储单词的内容以及频率，添加了CountFrequentWord这个方法，目前还只实现了把单词存下来，展示出来有什么单词，还不能查重和算频率\n","8":"CountWords\n\n完善了统计单词数的功能，可以达到4个英文字母开头才算一个单词的要求，改变了一下一行中过长的代码位置，更符合自己写的代码规范\n","9":"CountWord\n\n可以实现从记事本中读取字符流，并且找出其中的英文字母实现拼接（该版本还未实现单词的识别以及计数）。\n","10":"CountChar\n\n把上一次写的计算有效行数都封装进了CountLine方法中，新完成了计算字符数的功能，并封装到了CountChar方法中\n"} |
-| 01124      | 30    | 1      | 144   | 1      | 148   | 1      | 235   | 6      | 168   | 6      | 300   | 6      | 167   | 1      | 350    | 6      | 281   | 1      | 284   | 1       | 282    | 17           | {"11":"feat:countChars\n","12":"feat:countWords\n","13":"first  commit\n","14":"Revert \"Revert  \"first\"\"\n\nThis reverts commit  703130464c414183201b2f11c62bdab66ec4bf83.\n","15":"Revert  \"first\"\n\nThis reverts commit  db91e8b99a1fc4e5ee6f77074ffd33659933f2df.\n","16":"first\n\ncreate  a student number folder\n","0":"fix: no space behind","1":"Merge  remote-tracking branch 'origin/main' into  main\n","2":"style : fix  style\n","3":"Update  README.md","4":"Delete 031801124/test  directory","5":"fix : countWords linecount  fix\n","6":"fix : countChars \tTests  complete\n","7":"fix :  countChars\n","8":"fix :  countWords\n","9":"fix : sort of countMost\n","10":"feat  : countMost\n"} |
-| 01330      | 10    | 1      | 155   | 1      | 139   | 1      | 167   | 1      | 159   | 1      | 189   | 1      | 166   | 1      | 200    | 1      | 198   | 1      | 197   | 1       | 190    | 32           | {"22":"Update  codestyle.md","23":"Update  codestyle.md","24":"Update  codestyle.md","25":"Update  codestyle.md","26":"Create  Lib.java","27":"Create  WordCount.java","28":"Delete  src","29":"Create  README.md","30":"Create  codestyle.md","31":"Create  src","10":"feat: 新增单词判断方法","11":"feat:  新增字符数统计功能","12":"feat:  新增字符数、单词数量、行数、单词出现频次的Set（）、Get（）方法","13":"feat:  实现命令行输入以及输入异常状态下的判断","14":"docs:  更新代码规范文档","15":"docs:  更新代码规范文档","16":"Update  codestyle.md","17":"Update  codestyle.md","18":"Update  codestyle.md","19":"Update  codestyle.md","0":"fix：bug修复","1":"fix：bug修复","2":"docs：编写描述文档","3":"style：代码规范化","4":"feat：需求功能的实现","5":"style：代码规范化","6":"feat:  部分代码注释","7":"feat:  对单词数、行数、出现频次的计算","8":"feat: 新增单词出现频次统计方法","9":"feat:  新增单词数量统计方法","20":"Update  codestyle.md","21":"Update codestyle.md"} |
-| 01218      | 0     | 0      | 4126  | 0      | 4062  | 0      | 14396 | 0      | 3939  | 0      | 51552 | 0      | 4163  | 0      | 84682  | 0      | 41465 | 0      | 41301 | 0       | 39469  | 10           | {"0":"- 完善README.md\n","1":"-  完善字符统计判断逻辑\n","2":"-  增加部分异常处理\n","3":"-  增加代码规范\n","4":".gitignore  update\n","5":"- 修复行数计算时计算空行的问题\n","6":"-  增加行数计算 CountLine\n- 增加文件读写编码UTF-8限制\n-  修正了函数count的命名\n","7":"- 增加获取词频Top  10功能\n","8":"- 移除CountWordFreq类\n-  完成CountWorld类\n","9":"- 新建三个Count类\n-  完成CountChar类\n"} |
-| 01416      | 0     | 0      | 105   | 0      | 100   | 0      | 102   | 0      | 105   | 0      | 102   | 0      | 103   | 0      | 100    | 0      | 104   | 0      | 98    | 0       | 106    | 8            | {"0":"改了一下参数\n","1":"每个冒号后面都加了空格且值相同时按key排序\n","2":"改了一些bug\n","3":"增加了代码规范和项目描述\n","4":"增加了代码规范\n","5":"将计算功能模块化\n","6":"初步完成\n","7":"add\n"} |
-| ample      | 0     | 0      | 109   | 0      | 102   | 0      | 101   | 0      | 97    | 0      | 102   | 0      | 100   | 0      | 105    | 0      | 99    | 0      | 114   | 0       | 105    | 10           | {"0":"Update codestyle.md\n\nto avoid  conflict","1":"Update README.md\n\nto avoid  conflict","2":"修改了codestyle\n","3":"修改了codestyle\n","4":"修改了codestyle\n","5":"修改了codestyle\n","6":"删除不必要的代码规范\n","7":"删除了不必要的代码风格\n","8":"添加代码规范\n","9":"add  example files\n"} |
-| iting      | 0     | 0      | -2    | 0      | -2    | 0      | -2    | 0      | -2    | 0      | -2    | 0      | -2    | 0      | -2     | 0      | -2    | 0      | -2    | 0       | -2     | 16           | {"11":"修改了src\n","12":"Update  README.md","13":"Update  README.md","14":"修改了文件夹\n","15":"修改文件夹\n","0":"去除前面的包","1":"修改文件格式\n","2":"修改\n","3":"修改了WordCount\n","4":"使所有类都是用UTF编码\n","5":"Merge  branch 'main' of  github.com:Zmeiting/PersonalProject-Java\n","6":"添加了Test类进行大量数据测试\n","7":"删掉了前面的包","8":"删掉了前面的包","9":"删掉了前面的包","10":"Merge  branch 'main' of github.com:Zmeiting/PersonalProject-Java\n"} |
-| 01214      | 0     | 0      | -2    | 0      | -2    | 0      | -2    | 0      | -2    | 0      | -2    | 0      | -2    | 0      | -2     | 0      | -2    | 0      | -2    | 0       | -2     | 17           | {"11":"add  qmkl\n\n添加统计单词数\n","12":"add  qmlk\n\n理解错计算字符数的意思,我以为是认为输入的\\n和\\t,做了修改\n","13":"add  qmlk\n\n添加了计算字符数\n","14":"Create  lzk","15":"Delete 221801214","16":"Create  221801214","0":"add qmkl\n","1":"add  qmkl\n","2":"add qmkl\n","3":"add  qmkl\n","4":"add qmkl\n\n增加了代码规范和项目描述\n","5":"add  qmkl\n\n增加了命令行输入功能,修改了一些编译错误,其中有一些注释的中文错误,我不知道为什么,不知道是不是我的电脑用户名为中文的原因还是什么.\n","6":"add  qmkl\n\n修改了一些字符数和单词的bug,然后把这些数据存入文件\n","7":"add  qmkl\n\n增加了计算非空白行数\n","8":"add qmkl\n\n把文件的绝对路径改成相对路径\n","9":"add  qmlk\n\n对存放单词的key和value进行了排序\n","10":"add  qmlk\n\n新增map来存入单词和单词数\n"} |
-| 01116      | 0     | 0      | 100   | 0      | 100   | 0      | 105   | 0      | 102   | 0      | 99    | 0      | 104   | 0      | 100    | 0      | 109   | 0      | 101   | 0       | 99     | 13           | {"11":"1\n\ntest\n","12":"0\n","0":"11.1\n\n冒号后面加一个空格\n","1":"11\n\n最终\n","2":"10\n\n修复了一些bug\n","3":"9\n\n增加多线程处理\n","4":"8\n\n增加计算字符，计算非空行，计算单词数返回结果int值的函数接口\n","5":"7\n\n编码集统一设定为UTF-8\n","6":"6\n\n添加了部分异常处理\n","7":"5\n\n简单输出\n","8":"4\n\n对字典进行排序\n","9":"3\n\n计算行数\n","10":"2\n\n计算单词数，统计单词词频\n"} |
-| 01216      | 0     | 0      | 97    | 0      | 99    | 0      | 104   | 0      | 99    | 0      | 98    | 0      | 104   | 0      | 98     | 0      | 98    | 0      | 103   | 0       | 99     | 16           | {"11":"新增文件读取，转化成字符串的函数\n","12":"新增统计有效行数的函数\n","13":"新增统计单词个数的函数\n","14":"新增统计文件字符数的函数\n","15":"建立三个类，分别为处理文件的(FileDeal)、处理单词的(WordDeal)、主函数(WordCount)\n","0":"将换行标准修改\n","1":"修改格式：冒号后带个空格\n","2":"省略文件\n","3":"省略gitignore文件和排版下README.md文件\n","4":"编写REDAME.md，在WordDealTest上增加测试用例，其余函数做细节方面小的修改\n","5":"修改代码规范，WordCount修改小细节\n","6":"新增单元测试\n","7":"编写代码规范\n","8":"把排完序的List元素筛出前十个\n","9":"新增统计单词词频的函数\n","10":"新增写入输出文件的函数\n"} |
-| 01110      | 0     | 0      | 101   | 0      | 98    | 0      | 102   | 0      | 97    | 0      | 105   | 0      | 100   | 0      | 98     | 0      | 104   | 0      | 99    | 0       | 99     | 16           | {"11":"实现统计文件的有效行数功能\n","12":"实现统计文件的字符数功能\n","13":"代码规范\n","14":"代码规范\n","15":"添加文件\n","0":"第十三次commit\n","1":"第十二次commit\n","2":"第十一次commit\n","3":"第十次commit\n","4":"第九次commit\n","5":"第八次commit\n","6":"第七次commit\n","7":"Update  codestyle.md\n","8":"函数打包Lib.java，并实现统计单词数功能\n","9":"Update  codestyle.md\n","10":"Update WordCount.java\n"} |
-| 01111      | 0     | 0      | 101   | 0      | 99    | 0      | 103   | 0      | 98    | 0      | 104   | 0      | 99    | 0      | 98     | 0      | 104   | 0      | 102   | 0       | 99     | 13           | {"11":"Delete 221801111","12":"Create  221801111","0":"fourth-modify\n","1":"fourth-modify\n","2":"sixth-modify\n","3":"sixth\n","4":"fifth-add\n","5":"fifth\n","6":"fourth\n","7":"third\n","8":"second\n","9":"first\n","10":"Create  221801111"} |
-| 01430      | 0     | 0      | 3665  | 0      | 3734  | 0      | 12781 | 0      | 3755  | 0      | 50051 | 0      | 3807  | 0      | 84407  | 0      | 41137 | 0      | 39630 | 0       | 37180  | 15           | {"11":"统计文件行数\n","12":"单词统计\n","13":".gitignore  move\n","14":"add  221801430\n","0":"bug修复\n","1":"no  message\n","2":"代码规范及文档修改\n","3":"修复小bug\n","4":"命令行和写入文件\n","5":"no  message\n","6":"bug修复\n","7":"修复bug及功能完善\n","8":"单词频数功能待完善\n","9":"统计相同单词数（未完成）\n","10":"统计文件行数更改\n"} |
-| 01233      | 0     | 0      | 205   | 0      | 203   | 0      | 251   | 0      | 188   | 0      | 329   | 0      | 217   | 0      | 363    | 0      | 313   | 0      | 292   | 0       | 280    | 10           | {"0":"Update  codestyle.md\n","1":"改正识别空白符行的bug\n","2":"增加文档\n","3":"Create  codestyle.md\n","4":"修改了获取行数的一个小bug\n","5":"完善了IO的bug,增加了相应处理\n","6":"完善了输出的单词排序功能\n","7":"增加lib类\n","8":"把输出功能完善了\n","9":"Create  WordCount.java\n\n先完成主要的文件输入输出\n"} |
-| 01310      | 0     | 0      | 179   | 0      | 153   | 0      | 187   | 0      | 152   | 0      | 286   | 0      | 153   | 0      | 281    | 0      | 265   | 0      | 235   | 0       | 236    | 23           | {"11":"啊这\n","22":"测试提交\n\n测试一下gitignore的规则\n","12":"修改读取文件\n\n原本的读取文件是一行一行的读取，自动补上\\n，但由于换行符有时候可能是\\r\\n，所以这种方式是错误的。现在改成用read(byte[]  b)函数读取。\n","13":"输出到txt文件 并完善了一些功能\n\n1. 在sortHashMap处最多只取10条记录\n2.  splitLegalWord返回小写字母\n3. 完善了main函数\n4. 不再将排序好的list转换为hashMap  而是直接返回list\n","14":"添加统计词频功能\n\nCountFrequency类中：\n1.  添加了countFrequency传入文本 得到未排序的单词出现频率HashMap\n2.   添加了sortHashMap 对hashMap进行排序\nSplitWord类中：\n3.  添加了textToLegalWord方法，传入文本，返回合法单词的list\n","15":"分离提取合法单词功能\n\n在splitWord中添加splitLegalWord方法，返回存放合法单词的List<String>.  将功能分隔出来了，方便其他方法复用，也使得countWord方法更加简洁\n","16":"统计行数\n\n添加了CountLine类，countLine静态方法用来统计行数，isValidate方法判断是否空行\n","17":"统计单词数\n\n添加了CountWord这个类，其中的countWord这个静态方法用来统计文本中的单词数。传入参数为文本text\n","18":"字符分割  读取优化\n\n添加了splitWord方法，功能：输入文本，输出分隔好的字符串数组。\n优化了读取方法readTxt，指定了编码为UTF-8\n","19":"添加了统计ascii字符数功能\n","0":"删除.iml文件\n\n切换分支提交的时候没注意到之前测试提交的错误文件。。\n","1":"删除一些错误文件\n","2":"Merge  branch 'zyx' into main\n","3":"添加了README文件\n\n介绍了运行方式\n","4":"添加了几个工具类\n\n1.  regexUtils 帮助创建Matcher 用于正则匹配\n2.toLowerStr、toLowerChar  大写字符转小写\n","5":"将无关类删除，整合到Lib类中 需要通过命令行执行了\n\n1.  整合所有方法到Lib类中 之前那么多类其实都是无意义的 陋习罢了\n2.  现在需要通过命令行先编译，然后传参数才能执行了\n","6":"做了一些修改 多线程运行\n\n1.  CountLine判断空行的规则改变了，修复了行数读取错误 isValidate弃用\n2.  CountWord类弃用，合法单词的长度如果超过一定长度无法通过size方法获取。改为在SplitWord中 进行计算。\n3.  修改了读取文件的一个错误，这个错误导致读取的文本存在问题。\n4.  将单词数量计算和行数计算转为多线程运行，缩短了一定的总运行时间。\n","7":"做了一些提高性能的改变\n\n1.  计算ASCII码的时候 改为直接返回字符串长度，因为给定的文本必定是UTF-8编码的。\n2.  SplitWord中进行了大改：添加了findLegal方法，先前用split方法将String进行分割，耗时过久，同时matches匹配也很耗时。因此改为直接对String进行匹配，通过Matcher.find()方法进行匹配，在while循环中将匹配的字符串提取，同时统计出现次数，字符串和出现次数存放到hashMap中。\n3.  CountWord中，统计合法单词的方法也改变了，现在只需返回legalWords这个hashMap的大小就可以知道合法单词数。\n4.  读取文件改为带缓冲字节流读取BufferInputStream，  读取文件速度大大提升，但存在读取长度问题，调试很久，应该是编码问题，将在后续版本更新，或更换其他方式。（添加的openFile函数来自邹洋艺同学，是我为了排除bug向他要过来作测试用）\n","8":"修改了文件读取的一个错误\n\ninputStream.read(bytes);\n","9":"修复读取文件错误\n\n1.原本的读取文件是一行一行的读取，自动补上\\n，但由于换行符有时候可能是\\r\\n，所以这种方式是错误的。现在改成用read(byte[]  b)函数读取。\n2.  还修复了最后输出单词时，如果出现频率相同的单词，优先输出字典序靠前的单词\n","20":"读取文件\n\n读取的文件名暂时固定，便于测试。将文件中内容读取并保存到String里\n","10":"Revert  \"修改读取文件\"\n\nThis reverts commit  5acde58112b078817d57037108a1ad85d8154352.\n","21":"添加了代码规范\n\n基于《阿里巴巴Java开发手册》编写的代码规范\n"} |
-| 01406      | 0     | 0      | 101   | 0      | 101   | 0      | 102   | 0      | 102   | 0      | 100   | 0      | 103   | 0      | 108    | 0      | 102   | 0      | 104   | 0       | 105    | 11           | {"0":"加上了注释和代码风格V1.10\n","1":"成功让词频统计按照字典序排序V1.9\n","2":"修复了之前整合读取功能时出现的bugV1.8\n","3":"将读取文件整合为一个功能V1.7\n","4":"没仔细看到换行符也要统计V1.6\n","5":"解决了输出的编码问题V1.5\n","6":"完成了从控制台输入文件功能V1.4\n","7":"完成了统计词频并输出前十的功能V1.3\n","8":"初步完成统计单词数量的功能V1.2\n","9":"完成了统计行数的功能V1.1\n","10":"初步完成统计字符的功能V1.0\n"} |
-| 01229      | 0     | 0      | 99    | 0      | 97    | 0      | 108   | 0      | 100   | 0      | 102   | 0      | 101   | 0      | 100    | 0      | 99    | 0      | 102   | 0       | 99     | 10           | {"0":"tenth\n\n改进判别单词分隔符的正则表达式，使结果更精确\n","1":"ninth\n\n编写主函数\n","2":"eighth\n\n编写写入文件的方法\n","3":"seventh\n\n编写单词频数统计方法\n","4":"sixth\n\n编写单词数统计方法\n","5":"fifth\n\n编写统计行数方法\n","6":"fourth\n\n编写并测试了字符计数方法\n","7":"third\n\n增加FileUtil类\n","8":"second\n\n编写代码规范\n","9":"first\n\nfirst\n"} |
-| 01125      | 0     | 0      | 125   | 0      | 112   | 0      | 113   | 0      | 111   | 0      | 111   | 0      | 107   | 0      | 119    | 0      | 110   | 0      | 126   | 0       | 115    | 7            | {"0":"1.13v  /t空白字符更正\n","1":"md文档提交\n","2":"1.12v  名称更改\n","3":"运行文档\n","4":"1.11v  相对路径\n","5":"md文档提交\n","6":"1.10v\n"} |
-| 01104      | 0     | 0      | 103   | 0      | 99    | 0      | 109   | 0      | 105   | 0      | 100   | 0      | 103   | 0      | 103    | 0      | 102   | 0      | 105   | 0       | 103    | 26           | {"22":"Create  README.md\n\n记录本次实践的一些信息","23":"Create  codestyle.md\n\n代码风格","24":"Delete  221801104","25":"Create  221801104\n\n软件工程实践第二次作业","10":"Update WordCount.java\n\n把文件中所有大写字母转换为小写","11":"Update  WordCount.java\n\n统计文件的行数并输出","12":"Update  WordCount.java\n\n将字符数和单词数按指定格式输出到用户指定的文件位置","13":"Update  WordCount.java\n\n统计字符数和单词数","14":"Update  WordCount.java\n\n需要读取的文件和输出流的初始化","15":"Update  WordCount.java\n\n先读取用户输入要读取的文件路径（docin），如：E://1.txt。\r\n后读取用户输入要输出的文件路径（docout），如：E://2.txt。","16":"Update  WordCount.java\n\n词频统计的要求注释和主要方法为用HashMap来存储单词的频率","17":"Update  WordCount.java\n\n需要引入的包","18":"Create  WordCount.java\n\n词频统计Java版","19":"Delete  Main.java","0":"Update  WordCount.java\n\n改正词频统计错误","1":"Update  WordCount.java\n\n解决词频统计的统计错误","2":"Update  WordCount.java\n\n优化了字符、单词、行数的统计，解决了词频统计的越界错误","3":"Update  README.md\n\n更新README","4":"Update  WordCount.java\n\n调整格式至codestyle","5":"Update  WordCount.java\n\n统计单词频率","6":"Update  WordCount.java\n\n把文件中所有单词转化为小写的函数","7":"Update  WordCount.java\n\n打印出所有信息，自己校对用","8":"Update  WordCount.java\n\n将出现频率最高的前十个单词写入文件","9":"Update  WordCount.java\n\n将单词按照次数从高到低排序","20":"Create  Main.java","21":"Update  codestyle.md\n\n之后的代码按照此代码风格进行，有其他忽略的细节会及时补充"} |
-| 01324      | 0     | 0      | 101   | 0      | 98    | 0      | 104   | 0      | 100   | 0      | 98    | 0      | 103   | 0      | 101    | 0      | 99    | 0      | 103   | 0       | 98     | 11           | {"0":"Add files via  upload\n\n增加了代码规范","1":"Add files via  upload\n\n增加了测试的主函数入口","2":"Add files via  upload\n\n增加了最后输出各类数据的函数","3":"Add files via  upload\n\n增加了输出流打开关闭函数","4":"Add files via  upload\n\n增加了计算单词频率的函数","5":"Add files via  upload\n\n增加了计算字符数的函数","6":"Add files via  upload\n\n增加了计算行数的函数","7":"Add files via  upload\n\n增加了计算单词个数的函数","8":"Add files via  upload\n\n增加了读取字符流的函数","9":"Add files via  upload\n\n增加了Lib类的构造函数","10":"Add files via  upload\n\n写了一个Lib类，里面有之后需要的各种数据类型"} |
-| 01325      | 0     | 0      | 155   | 0      | 170   | 0      | 253   | 0      | 167   | 0      | 267   | 0      | 157   | 0      | 404    | 0      | 333   | 0      | 349   | 0       | 264    | 36           | {"22":"分装模块\n\n分装模块\n","23":"初步完成\n\n初步完成所有功能\n","24":"完成行数计算\n\n完成行数计算\n","25":"Delete  output.txt","26":"Delete  input.txt","27":"Delete 221801325.iml","28":"完成计算单词数\n\n完成计算单词数，输出到output\n","29":"完成计算字符\n\n完成计算字符\n","30":"成功读取文件\n\n成功读取文件\n","31":"Update  Main.java\n","10":"改进计算单词的方法\n\n改进了计算单词的方法，换用match.find()方法，极大提高了效率。还在测试各部分性能\n","32":"结构\n\n完善作业结构\n","11":"Update  codestyle.md","33":"Create  1","12":"Update  codestyle.md","34":"Delete 1","13":"完成\n\n基本完成程序\n","35":"Create  1","14":"完善程序\n\n将文件操作分装\n","15":"完善字典排序\n\n完善了字典排序\n","16":"修改计算行方法\n\n换用。read（）读取，因此修改计算行的方法\n","17":"修改排序\n\n优先输出字典序靠前的单词\n","18":"改用stringbuffer\n\n非常显著提高了读取文件运行速度\n","19":"Revert  \"Merge branch 'main' of  https://github.com/yangyi16123/PersonalProject-Java into main\"\n\nThis  reverts commit 7de52715320a79e43386cd74304654921c495430, reversing\nchanges  made to  1b61e7043056905fa6031327419d2ffe6bbecc27.\n","0":"Merge  branch 'main' of https://github.com/yangyi16123/PersonalProject-Java into  main\n","1":"更新README\n\n更新README.md\n","2":"Delete  221801325.iml","3":"修复一些bug\n\n修改了一些算法。使程序能跑500兆以上的大文件\n","4":"Revert  \"Delete 221801325.iml\"\n\nThis reverts commit  c874c3151c51122209dda87423062b04735b3c16.\n","5":"Merge  branch 'main' of https://github.com/yangyi16123/PersonalProject-Java into  main\n","6":"Delete 221801325/test  directory","7":"Delete  221801325.iml","8":"删除多余输出语句\n\n将之前用来查看时间的输出语句删除  并将文件目录换成命令行可传参形式\n","9":"修改计算行数方法\n\n修改计算行数方法，弃用分割，采用正则\n","20":"Merge  branch 'main' of https://github.com/yangyi16123/PersonalProject-Java into  main\n","21":"完善程序\n\n修改计算行数方法，计算word时，将单词记录到map\n"} |
-| 01106      | 0     | 0      | 101   | 0      | 100   | 0      | 105   | 0      | 103   | 0      | 105   | 0      | 110   | 0      | 106    | 0      | 102   | 0      | 104   | 0       | 104    | 23           | {"11":"写了WordCount.java的主函数\n","22":"Create  221801106","12":"删除了所有相关代码，重新开始提交\n","13":"一次性把代码提交，后面删掉分次提交\n","14":"Update  codestyle.md","15":"Create  Lib.java","16":"Update  codestyle.md","17":"Update  REDAME.md","18":"Create  codestyle.md","19":"Create  WordCount.java","0":"Update Lib.java\n\n修改细节","1":"完成\n","2":"添加了测试类\n","3":"添加了总和函数\n","4":"将要输出的结果集合成一个result字符串，并输出到output.txt文件\n","5":"通过迭代器计算出hashmap里面一共有多少单词\n","6":"提交了读取文档，并统计字符数，行数，以及将字符串分开，放入以单词为key的hashmap中\n","7":"提交了根据key和value进行hashmap排序的函数\n","8":"提交了判断是否为单词的函数\n","9":"提交了Lib工具类的构建函数\n","20":"Create  REDAME.md","10":"开始编写Lib.java工具类，写了一些变量\n","21":"Delete  221801106"} |
-| 01205      | 0     | 0      | 102   | 0      | 102   | 0      | 102   | 0      | 101   | 0      | 106   | 0      | 101   | 0      | 102    | 0      | 112   | 0      | 102   | 0       | 107    | 16           | {"11":"read file\n","12":"init  WirdCount.java\n","13":"modify  codestyle.md\n","14":"write  codestyle.md\n","15":"copy example to  221801205\n","0":"modify outPut  mode\n","1":"modify  README.md\n","2":"create class OperateFile and move  code\n","3":"modify CountCore return and WordCount  output\n","4":"add function getMaxCount\n","5":"add  function getRowCount\n","6":"add function  getWordCount\n","7":"add func  isWord\n","8":"add  note\n","9":"create class CountCore and count  char\n","10":"function readFile add static\n"} |
-| 01421      | 0     | 0      | 99    | 0      | 97    | 0      | 103   | 0      | 101   | 0      | 96    | 0      | 103   | 0      | 97     | 0      | 96    | 0      | 102   | 0       | 99     | 13           | {"11":"完成了有效行数的统计\n","12":"完成了文件的读入和字符统计\n","0":"根据题目要求修改了输出格式\n","1":"修改了bug\n","2":"补充了README\n","3":"将注释补充完整，并且修改代码使得符合代码规范\n","4":"删除了测试相关内容\n","5":"性能测试\n","6":"完成了测试类,  进行了单元测试\n","7":"将计算模块独立出来并且将输入方式改为命令行输入\n","8":"完成了写入文件和暴露给main函数的api\n","9":"实现了词频TopK的统计\n","10":"完成了单词量计数和词频的统计\n"} |
+![](https://img2020.cnblogs.com/blog/683206/202103/683206-20210311160102326-358774870.png)
 
-## 支持的语言和开发进度
+其中：
 
-| 语言   | 进度             |
-| ------ | ---------------- |
-| Java   | 已测试并投入运行 |
-| C++    | 开发完毕，待测试 |
-| Python | 开发中           |
-| NodeJS | 待开发           |
+StudentNo: 表示学生学号的后五位
+
+Score：汇总分数，即Score1 + Score2 + … + Scorei 之和
+
+Scorei：表示第i个用例的得分
+
+Timei：表示第i个用例的耗时
+
+commit_times：表示每个学生的提交次数
+
+commit_details：表示每个学生的提交信息，JSON格式
 
 
 
-## 快速上手
+## 使用方式
 
-待补充
+> 目前没有将项目打包，还是以源码的方式运行，主要是方便调试和改代码，后续会完善打包运行。
+
+
+
+我们必须先规定好测试代码的位置，以WordCount项目为例，所有同学的代码都以学号命名收集到如下仓库中：
+
+https://github.com/kofyou/PersonalProject-Java.git
+
+目录结构为：
+
+PersonalProject-Java
+
+- 学号1
+  - src
+    - WordCount.java
+- 学号2
+  - src
+    - WordCount.java
+    - Lib.java
+- 学号3
+  - src
+    - WordCount.java
+
+…
+
+
+
+克隆代码
+
+```bash
+git clone https://github.com/GreyZeng/WordCountAutoTest.git
+```
+
+
+
+克隆完毕后，用Jetbrains IDEA 打开文件WordCountAutoTest，并且在WordCountAutoTest下新建download文件夹，如下图：
+
+![](https://img2020.cnblogs.com/blog/683206/202103/683206-20210311150843165-514756181.png)
+
+在download文件夹下新建一个judge文件夹，里面放对数程序，这个对数程序的目的就是，把测试用例的答案算出来，
+
+**这个对数程序要保证正确！！！最好多个助教一起做一下题目，然后互相验证没问题了，在把对数程序放上去**。
+
+**PS：对数程序请不要提交到Github，防止学生抄袭！**
+
+如上图，我放了一个对数程序WordCount.java
+
+
+
+关注并确认Client.java类中的如下几个参数，其他参数可以参考注释进行修改，一般不需要改：
+
+| 参数名称        | 备注                                                         |
+| --------------- | ------------------------------------------------------------ |
+| NEED_CLONE      | 设置为true，会不断重试clone代码仓库                          |
+| CLONE_URL       | 改成对应的地址，例如：https://github.com/kofyou/PersonalProject-Java.git |
+| JUDGE_PROGRAM   | 改成对数程序的绝对路径地址，例如："D:\\git\\WordCountAutoTest\\download\\judge" |
+| TESTCASE_NUM    | 默认测试用例的数量，默认10个                                 |
+| TEXT_MIN_LENGTH | 测试文本的最少字符数，默认100个字符                          |
+| TEXT_MAX_LENGTH | 测试文本的最大字符数量，默认1000000个字符                    |
+
+
+
+修改好配置参数后，直接在IDEA里面Run Client.java，等待执行完毕即可。
+
+
+
+> 说明：运行的时候，会在之前download的目录以当前时间戳建一个文件夹，这样做的目的是保证每次运行不会有文件夹冲突。
+
+
+
+执行完毕后，按如下目录找需要的信息：
+
+| 目录                                              | 说明                                 |
+| ------------------------------------------------- | ------------------------------------ |
+| download/时间戳/cases/                            | 存放用例的位置                       |
+| download/时间戳/answers/                          | 存放答案的位置                       |
+| download/时间戳/PersonalProject-Java/             | 项目目录                             |
+| download/时间戳/PersonalProject-Java/学号/output/ | 每个学号的学生的执行用例的输出文件夹 |
+| download/时间戳/result/result.csv                 | 本次测评的csv文件                    |
 
 
 
