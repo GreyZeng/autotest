@@ -157,6 +157,7 @@ git clone https://github.com/GreyZeng/WordCountAutoTest.git
 | download/时间戳/PersonalProject-Java/             | 项目目录                             |
 | download/时间戳/PersonalProject-Java/学号/output/ | 每个学号的学生的执行用例的输出文件夹 |
 | download/时间戳/result/result.csv                 | 本次测评的csv文件                    |
+| WordCountAutoTest\log                             | 日志记录文件夹                       |
 
 
 
