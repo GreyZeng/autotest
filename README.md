@@ -45,7 +45,7 @@
 
 ## 效果预览
 
-| StudentNo2 | Score | Score1 | Time1 | Score2 | Time2 | Score3 | Time3 | Score4 | Time4 | Score5 | Time5 | Score6 | Time6 | Score7 | Time7  | Score8 | Time8 | Score9 | Time9 | Score10 | Time10 | commit_times | commit_details                                               |
+| StudentNo | Score | Score1 | Time1 | Score2 | Time2 | Score3 | Time3 | Score4 | Time4 | Score5 | Time5 | Score6 | Time6 | Score7 | Time7  | Score8 | Time8 | Score9 | Time9 | Score10 | Time10 | commit_times | commit_details                                               |
 | ---------- | ----- | ------ | ----- | ------ | ----- | ------ | ----- | ------ | ----- | ------ | ----- | ------ | ----- | ------ | ------ | ------ | ----- | ------ | ----- | ------- | ------ | ------------ | ------------------------------------------------------------ |
 | 01130      | 100   | 10     | 197   | 10     | 204   | 10     | 280   | 10     | 203   | 10     | 356   | 10     | 202   | 10     | 407    | 10     | 355   | 10     | 343   | 10      | 343    | 24           | {"11":"优化代码格式","22":"代码规范\n","12":"使用命令行\n","23":"读取文件功能\n","13":"对WordCount进行代码格式优化并使统计结果输出到文件里\n","14":"将输出十个频率最高单词功能封装分离\n","15":"将统计单词功能封装分离\n","16":"将统计字符和统计行数功能封装分离到Lib\n","17":"新增一个Core模块\n","18":"新增统计文件中各单词的出现次数（频率最高的10个）（\n","19":"新增行数统计功能\n","0":"修复输入文件行数不足十行会抛出异常的bug","1":"Update  Lib.java","2":"修复了下载到本地代码格式发生变化的bug","3":"修复了下载到本地后代码格式变化的bug","4":"修改getSortedList函数","5":"修改writeFile函数","6":"Create  README.md","7":"改进统计行数的性能","8":"Update  Lib.java","9":"修改单词数和行数顺序相反的bug","20":"更进字符统计功能和新增单词统计功能\n","10":"重新优化代码格式","21":"完成统计字符功能\n"} |
 | 01230      | 100   | 10     | 171   | 10     | 166   | 10     | 227   | 10     | 170   | 10     | 322   | 10     | 184   | 10     | 366    | 10     | 300   | 10     | 308   | 10      | 290    | 15           | {"11":"字符数统计charNumCount\n","12":"添加readFile函数\n","13":"从命令行参数获取文件名,创建Lib处理类\n","14":"新建项目\n","0":"更新部分细节","1":"Edit  README.md","2":"代码规范","3":"修复word排序错误的bug\n","4":"修复word数错误的bug\n","5":"终版\n","6":"输出函数writeFile\n","7":"对单词排序\n","8":"用Map存取单词频数\n","9":"统计单词数wordNumCount\n","10":"行数统计lineNumCount\n"} |
@@ -106,7 +106,7 @@
 
 - Git的每次签入详情，代码的修改和新增情况。
 - 代码雷同部分，尝试接入[moss](http://theory.stanford.edu/~aiken/moss/) 。
-- 防止代码里面修改服务器文件，恶意运行多线程 ，参考[Judger](https://github.com/QingdaoU/Judger)。
+- 防止代码里面修改服务器文件，恶意运行多线程 ，参考[Judger](https://github.com/QingdaoU/Judger) 。
 
 ## 源码地址
 
