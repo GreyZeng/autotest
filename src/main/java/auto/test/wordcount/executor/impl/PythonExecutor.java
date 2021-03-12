@@ -4,10 +4,11 @@ import auto.test.wordcount.executor.Executor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static auto.test.wordcount.Client.PYTHON_EXE_LOCATION;
 import static auto.test.wordcount.utils.CmdUtil.cmd;
 
 /**
- * PythonÖ´ĞĞ³ÌĞò
+ * Pythonæ‰§è¡Œç¨‹åº
  *
  * @author <a href="mailto:18965375150@163.com">siberia0015</a>
  * @date 2021/3/5
@@ -15,35 +16,35 @@ import static auto.test.wordcount.utils.CmdUtil.cmd;
  */
 public class PythonExecutor implements Executor {
     /**
-     * ±àÒëÔ´ÎÄ¼ş
+     * ç¼–è¯‘æºæ–‡ä»¶
      *
-     * @param mainFile Main·½·¨µÄÈ«Â·¾¶
+     * @param mainFile Mainæ–¹æ³•çš„å…¨è·¯å¾„
      */
     @Override
     public void compile(String mainFile) {
-        // python²»ÓÃ±àÒë
+        // pythonä¸ç”¨ç¼–è¯‘
     }
 
     /**
-     * »ñÈ¡ÒªÖ´ĞĞµÄÎÄ¼şÃû
+     * è·å–è¦æ‰§è¡Œçš„æ–‡ä»¶å
      *
-     * @return ÒªÖ´ĞĞµÄpythonÎÄ¼şÃû
+     * @return è¦æ‰§è¡Œçš„pythonæ–‡ä»¶å
      */
     @Override
     public String mainFile() {
         return "WordCount.py";
     }
 
-    private static final Logger log = LoggerFactory.getLogger(JavaExecutor.class);
+    private static final Logger log = LoggerFactory.getLogger(PythonExecutor.class);
 
     /**
-     * @param mainFile Main·½·¨µÄÈ«Â·¾¶
-     * @param input    ²âÊÔÓÃÀı²ÎÊı eg: -n input.txt
-     * @return ²âÊÔÓÃÀıµÄÖ´ĞĞÊ±¼ä
+     * @param mainFile Mainæ–¹æ³•çš„å…¨è·¯å¾„
+     * @param input    æµ‹è¯•ç”¨ä¾‹å‚æ•° eg: -n input.txt
+     * @return æµ‹è¯•ç”¨ä¾‹çš„æ‰§è¡Œæ—¶é—´
      */
     @Override
     public long exec(String mainFile, String input) {
-        log.info("¿ªÊ¼Ö´ĞĞ {} ÊäÈë²ÎÊı {}", mainFile, input);
+        log.info("å¼€å§‹æ‰§è¡Œ {} è¾“å…¥å‚æ•° {}", mainFile, input);
         return python(mainFile, input);
     }
 
@@ -53,14 +54,16 @@ public class PythonExecutor implements Executor {
          executor.exec("E:\\WordCountAutoTest\\test\\Main.py", "E:\\WordCountAutoTest\\test\\input.txt E:\\WordCountAutoTest\\test\\output.txt");
 
     }*/
+
     /**
-     * Ö´ĞĞPython³ÌĞò
+     * æ‰§è¡ŒPythonç¨‹åº
      * python Main.py
      */
     public long python(String mainFile, String input) {
-        String cmd = "python " + mainFile + " " + input.trim();
+        String cmd = PYTHON_EXE_LOCATION + " " + mainFile + " " + input.trim();
         log.info("begin to exec {}", cmd);
         return cmd(cmd, 120);
     }
 
 }
+

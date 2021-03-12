@@ -31,10 +31,11 @@ public class Client {
     private static final int TEXT_MIN_LENGTH = 100;
     // 测试文本的最大字符数量
     private static final int TEXT_MAX_LENGTH = 1000000;
-
+    // Python的绝对路径(必须要指定)
+    public static final String PYTHON_EXE_LOCATION = "C:\\Program Files\\Python39\\python.exe";
     // 是否需要克隆，如果设置为true，则会使用CLONE_URL到一个目录进行操作
     // 如果设置为false，则会使用LOCAL_URI
-    private static final boolean NEED_CLONE = true;
+    private static final boolean NEED_CLONE = false;
     // 需要clone的学生仓库地址
     private static final String CLONE_URL = "https://github.com/kofyou/PersonalProject-Java.git";
     // 本地准备好的仓库地址：例如: "D:\\git\\WordCountAutoTest\\download\\1615421924089\\PersonalProject-Java"
@@ -43,9 +44,9 @@ public class Client {
     // 比如TESTCASE_NUM = 3, 那么
     // D:\\git\\WordCountAutoTest\\download\\1615421924089\\cases 下有三个txt文件: 1.txt, 2.txt, 3.txt
     // D:\\git\\WordCountAutoTest\\download\\1615421924089\\answers 下也有三个txt文件，1.txt, 2.txt, 3.txt 分别对应cases下面的三个文件的答案
-    private static final String LOCAL_URI = "D:\\git\\WordCountAutoTest\\download\\1615421924089\\PersonalProject-Java";
+    private static final String LOCAL_URI = "C:\\git\\WordCountAutoTest\\download\\1615525178742\\PersonalProject-Java";
 
-    private static final String JUDGE_PROGRAM = "D:\\git\\WordCountAutoTest\\download\\judge";
+    private static final String JUDGE_PROGRAM = "C:\\git\\WordCountAutoTest\\download\\judge\\src";
 
     /**
      * 在download文件夹下新建一个以当前时间戳为文件名的文件夹，然后把项目克隆到这个目录
@@ -89,7 +90,7 @@ public class Client {
 
         // 用自己准备的程序先把所有的cases的答案做出来
         try {
-            answerTestCases(testCases, JUDGE_PROGRAM);
+            //answerTestCases(testCases, JUDGE_PROGRAM);
         } catch (Exception e) {
             log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, JUDGE_PROGRAM);
             throw new Exception();
@@ -105,6 +106,9 @@ public class Client {
         Judge judge = new WordCountJudge();
         List<JudgeResult> results = new ArrayList<>();
         for (String studentId : src.keySet()) {
+            if (".git".equals(studentId)) {
+                continue;
+            }
             // main方法所在文件
             Executor executor;
             try {
