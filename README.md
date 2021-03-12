@@ -132,6 +132,7 @@ git clone https://github.com/GreyZeng/WordCountAutoTest.git
 | 参数名称        | 备注                                                         |
 | --------------- | ------------------------------------------------------------ |
 | NEED_CLONE      | 设置为true，会不断重试clone代码仓库                          |
+| PYTHON_EXE_LOCATION      | python.exe的绝对路径,例如：C:\\Program Files\\Python39\\python.exe                         |
 | CLONE_URL       | 改成对应的地址，例如：https://github.com/kofyou/PersonalProject-Java.git |
 | JUDGE_PROGRAM   | 改成对数程序的绝对路径地址，例如："D:\\git\\WordCountAutoTest\\download\\judge" |
 | TESTCASE_NUM    | 默认测试用例的数量，默认10个                                 |
