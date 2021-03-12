@@ -35,7 +35,7 @@ public class Client {
     public static final String PYTHON_EXE_LOCATION = "C:\\Program Files\\Python39\\python.exe";
     // 是否需要克隆，如果设置为true，则会使用CLONE_URL到一个目录进行操作
     // 如果设置为false，则会使用LOCAL_URI
-    private static final boolean NEED_CLONE = false;
+    private static final boolean NEED_CLONE = true;
     // 需要clone的学生仓库地址
     private static final String CLONE_URL = "https://github.com/kofyou/PersonalProject-Java.git";
     // 本地准备好的仓库地址：例如: "D:\\git\\WordCountAutoTest\\download\\1615421924089\\PersonalProject-Java"
@@ -60,6 +60,7 @@ public class Client {
      * @return 克隆后的绝对路径
      */
     public static String clone(String url) {
+        File randomFolder = null;
         while (true) {
             try {
                 File downloadFolder = new File("download");
@@ -69,6 +70,7 @@ public class Client {
                 // 以当前时间戳新建一个文件夹，防止冲突
                 String subFolder = String.valueOf(System.currentTimeMillis());
                 FileUtil.createFolder(downloadFolder.getAbsolutePath(), subFolder);
+                randomFolder = new File("download", subFolder);
                 String allSourceCodePath = downloadFolder.getAbsolutePath() + File.separator + subFolder;
                 GitUtil.cloneRepo(url, allSourceCodePath, false);
                 String repo = allSourceCodePath + File.separator + url.replace(".git", "").substring(url.lastIndexOf("/") + 1);
@@ -76,6 +78,9 @@ public class Client {
                 return repo;
             } catch (Throwable e) {
                 log.error("clone {} , error {}", url, e.getMessage());
+                if (null != randomFolder) {
+                    FileUtil.deleteFile(randomFolder);
+                }
             }
         }
     }
@@ -90,7 +95,7 @@ public class Client {
 
         // 用自己准备的程序先把所有的cases的答案做出来
         try {
-            //answerTestCases(testCases, JUDGE_PROGRAM);
+            answerTestCases(testCases, JUDGE_PROGRAM);
         } catch (Exception e) {
             log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, JUDGE_PROGRAM);
             throw new Exception();
