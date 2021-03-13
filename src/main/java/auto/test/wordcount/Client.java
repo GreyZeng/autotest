@@ -1,7 +1,11 @@
 package auto.test.wordcount;
 
 import auto.test.wordcount.executor.Executor;
-import auto.test.wordcount.judge.*;
+import auto.test.wordcount.generator.WordCountTestCasesGenerator;
+import auto.test.wordcount.judge.Judge;
+import auto.test.wordcount.judge.WordCountJudge;
+import auto.test.wordcount.model.JudgeItem;
+import auto.test.wordcount.model.JudgeResult;
 import auto.test.wordcount.model.TestCase;
 import auto.test.wordcount.report.ReportData;
 import auto.test.wordcount.report.WordCountReportData;
@@ -15,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import static auto.test.wordcount.utils.CSVUtil.exportToCSV;
 
@@ -44,7 +49,7 @@ public class Client {
     // 比如TESTCASE_NUM = 3, 那么
     // D:\\git\\WordCountAutoTest\\download\\1615421924089\\cases 下有三个txt文件: 1.txt, 2.txt, 3.txt
     // D:\\git\\WordCountAutoTest\\download\\1615421924089\\answers 下也有三个txt文件，1.txt, 2.txt, 3.txt 分别对应cases下面的三个文件的答案
-    private static final String LOCAL_URI = "C:\\git\\WordCountAutoTest\\download\\1615525178742\\PersonalProject-Java";
+    private static final String LOCAL_URI = "C:\\git\\WordCountAutoTest\\download\\1615564992210\\PersonalProject-Java";
 
     private static final String JUDGE_PROGRAM = "C:\\git\\WordCountAutoTest\\download\\judge\\src";
 
@@ -81,6 +86,13 @@ public class Client {
                 if (null != randomFolder) {
                     FileUtil.deleteFile(randomFolder);
                 }
+                try {
+                    //
+                    log.info("等待两分钟以后继续下载");
+                    TimeUnit.SECONDS.sleep(2 * 60);
+                } catch (InterruptedException interruptedException) {
+                    interruptedException.printStackTrace();
+                }
             }
         }
     }
@@ -111,7 +123,8 @@ public class Client {
         Judge judge = new WordCountJudge();
         List<JudgeResult> results = new ArrayList<>();
         for (String studentId : src.keySet()) {
-            if (".git".equals(studentId)) {
+            // 忽略.git文件夹 example文件夹
+            if (".git".equals(studentId) || "example".equals(studentId)) {
                 continue;
             }
             // main方法所在文件

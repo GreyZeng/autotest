@@ -1,6 +1,6 @@
 package auto.test.wordcount;
 
-import auto.test.wordcount.judge.WordCountTestCasesGenerator;
+import auto.test.wordcount.generator.WordCountTestCasesGenerator;
 import auto.test.wordcount.model.TestCase;
 import org.junit.jupiter.api.Test;
 

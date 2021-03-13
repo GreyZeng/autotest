@@ -25,9 +25,7 @@ public class GitUtilTest {
 
     @Test
     public void testHistory() {
-        List<String> history = GitUtil.history("C:\\git2\\PersonalProject-Java", "221801103");
-        for (String his : history) {
-            System.out.println(his);
-        }
+        List<String> history = GitUtil.history("C:\\git\\algorithm", "docs");
+
     }
 }

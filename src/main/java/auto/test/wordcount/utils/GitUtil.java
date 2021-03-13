@@ -1,18 +1,14 @@
 package auto.test.wordcount.utils;
 
 
-import auto.test.wordcount.Result;
-import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.LogCommand;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.NoHeadException;
 import org.eclipse.jgit.revwalk.RevCommit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,14 +65,13 @@ public class GitUtil {
     public static List<String> history(String repo, String path) {
         List<String> result = new ArrayList<>();
         try (Git git = Git.open(new File(repo))) {
-            // Git的本地地址 ："C:\\git\\algorithm"
             LogCommand log = git.log();
             Iterable<RevCommit> call = log.addPath(path).all().call();
             for (RevCommit commit : call) {
                 result.add(commit.getFullMessage());
             }
-        } catch (IOException | GitAPIException e) {
-            e.printStackTrace();
+        } catch (Throwable e) {
+            log.error("fetch commit history error {}", e.getMessage());
         }
         return result;
     }

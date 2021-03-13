@@ -1,7 +1,7 @@
 package auto.test.wordcount.utils;
 
-import auto.test.wordcount.judge.JudgeItem;
-import auto.test.wordcount.judge.JudgeResult;
+import auto.test.wordcount.model.JudgeItem;
+import auto.test.wordcount.model.JudgeResult;
 import auto.test.wordcount.report.WordCountReportData;
 import org.junit.jupiter.api.Test;
 

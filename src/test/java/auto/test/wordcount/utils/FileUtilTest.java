@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 
-import static auto.test.wordcount.DataGenerator.generateContent;
+import static auto.test.wordcount.generator.DataGenerator.generateContent;
 import static auto.test.wordcount.utils.FileUtil.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;

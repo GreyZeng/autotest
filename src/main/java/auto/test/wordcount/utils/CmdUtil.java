@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class CmdUtil {
     private static final Logger log = LoggerFactory.getLogger(CmdUtil.class);
-    private static final long TIMEOUT_FLAG = -2;
+    private static final long TIMEOUT_FLAG = Integer.MAX_VALUE;
     private static final long EXECUTE_ERROR_FLAG = -3;
 
     /**
@@ -31,7 +31,7 @@ public class CmdUtil {
             if (!process.waitFor(timeout, TimeUnit.SECONDS)) {
                 process.destroy();
                 log.warn("time limited {}, over {}", cmd, timeout);
-                return TIMEOUT_FLAG;
+                return Integer.MAX_VALUE;
             }
             return System.currentTimeMillis() - start;
         } catch (InterruptedException | IOException e) {

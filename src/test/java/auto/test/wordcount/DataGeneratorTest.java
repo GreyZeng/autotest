@@ -1,5 +1,6 @@
 package auto.test.wordcount;
 
+import auto.test.wordcount.generator.DataGenerator;
 import org.junit.jupiter.api.Test;
 
 /**
