@@ -41,7 +41,7 @@ public class CppExecutor implements Executor {
 
     @Override
     public String mainFile() {
-        return "WordCount.cpp";
+        return "X.cpp";
     }
 
     /**

@@ -1,7 +1,7 @@
 package auto.test.wordcount.executor;
 
 import auto.test.wordcount.executor.impl.NodeJSExecutor;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Created by siberia0015 on 2021/3/15.

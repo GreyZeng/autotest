@@ -35,7 +35,7 @@ public class PythonExecutor implements Executor {
      */
     @Override
     public String mainFile() {
-        return "WordCount.py";
+        return "X.py";
     }
 
     /**
