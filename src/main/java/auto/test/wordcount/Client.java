@@ -108,7 +108,7 @@ public class Client {
 
         // 用自己准备的程序先把所有的cases的答案做出来
         try {
-            // answerTestCases(testCases, JUDGE_PROGRAM);
+            answerTestCases(testCases, JUDGE_PROGRAM);
         } catch (Exception e) {
             log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, JUDGE_PROGRAM);
             throw new Exception();

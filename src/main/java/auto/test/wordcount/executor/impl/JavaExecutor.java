@@ -42,7 +42,7 @@ public class JavaExecutor implements Executor {
 
     @Override
     public String mainFile() {
-        return "X.java";
+        return "WordCount.java";
     }
 
 
