@@ -36,6 +36,8 @@ public class Client {
     private static final int TEXT_MIN_LENGTH = 100;
     // 测试文本的最大字符数量
     private static final int TEXT_MAX_LENGTH = 1000000;
+    // 是否需要对数程序解答，如果准备好了case和答案，则可以把这个选项设置为false
+    private static final boolean NEED_ANSWER = true;
     // Python的绝对路径(必须要指定)
     public static final String PYTHON_EXE_LOCATION = "C:\\Program Files\\Python39\\python.exe";
     public static final String NODEJS_EXE_LOCATION = "C:\\Program Files\\nodejs\\node.exe";
@@ -107,11 +109,14 @@ public class Client {
         Map<String, TestCase> testCases = generateTestCases(repo, TESTCASE_NUM, TEXT_MAX_LENGTH, TEXT_MIN_LENGTH);
 
         // 用自己准备的程序先把所有的cases的答案做出来
-        try {
-            answerTestCases(testCases, JUDGE_PROGRAM);
-        } catch (Exception e) {
-            log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, JUDGE_PROGRAM);
-            throw new Exception();
+        if (NEED_ANSWER) {
+            log.info("对数程序开始解答....");
+            try {
+                answerTestCases(testCases, JUDGE_PROGRAM);
+            } catch (Exception e) {
+                log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, JUDGE_PROGRAM);
+                throw new Exception();
+            }
         }
 
         // 遍历仓库下的所有学生学号命名的文件夹，在这些文件夹下面建好一个output文件夹，用于存放学生程序的输出结果文件
