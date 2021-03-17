@@ -132,6 +132,7 @@ git clone https://github.com/GreyZeng/WordCountAutoTest.git
 | 参数名称        | 备注                                                         |
 | --------------- | ------------------------------------------------------------ |
 | NEED_CLONE      | 设置为true，会不断重试clone代码仓库                          |
+| NEED_ANSWER      | true:表示使用对数程序解答一遍。 false：不使用对数程序解答                         |
 | PYTHON_EXE_LOCATION      | python.exe的绝对路径,例如：C:\\Program Files\\Python39\\python.exe                         |
 | NODEJS_EXE_LOCATION    | node.exe的绝对路径,例如：C:\\Program Files\\nodejs\\node.exe                         |
 | CLONE_URL       | 改成对应的地址，例如：https://github.com/kofyou/PersonalProject-Java.git |
