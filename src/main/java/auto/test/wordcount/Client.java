@@ -36,8 +36,11 @@ public class Client {
     private static final int TEXT_MIN_LENGTH = 100;
     // 测试文本的最大字符数量
     private static final int TEXT_MAX_LENGTH = 1000000;
+    // 是否需要对数程序解答，如果准备好了case和答案，则可以把这个选项设置为false
+    private static final boolean NEED_ANSWER = true;
     // Python的绝对路径(必须要指定)
     public static final String PYTHON_EXE_LOCATION = "C:\\Program Files\\Python39\\python.exe";
+    public static final String NODEJS_EXE_LOCATION = "C:\\Program Files\\nodejs\\node.exe";
     // 是否需要克隆，如果设置为true，则会使用CLONE_URL到一个目录进行操作
     // 如果设置为false，则会使用LOCAL_URI
     private static final boolean NEED_CLONE = true;
@@ -49,9 +52,9 @@ public class Client {
     // 比如TESTCASE_NUM = 3, 那么
     // D:\\git\\WordCountAutoTest\\download\\1615421924089\\cases 下有三个txt文件: 1.txt, 2.txt, 3.txt
     // D:\\git\\WordCountAutoTest\\download\\1615421924089\\answers 下也有三个txt文件，1.txt, 2.txt, 3.txt 分别对应cases下面的三个文件的答案
-    private static final String LOCAL_URI = "C:\\git\\WordCountAutoTest\\download\\1615564992210\\PersonalProject-Java";
+    private static final String LOCAL_URI = "C:\\git\\WordCountAutoTest\\download\\W-Java\\PersonalProject-Java";
 
-    private static final String JUDGE_PROGRAM = "C:\\git\\WordCountAutoTest\\download\\judge\\src";
+    private static final String JUDGE_PROGRAM = "C:\\git\\WordCountAutoTest\\download\\judge";
 
     /**
      * 在download文件夹下新建一个以当前时间戳为文件名的文件夹，然后把项目克隆到这个目录
@@ -106,11 +109,14 @@ public class Client {
         Map<String, TestCase> testCases = generateTestCases(repo, TESTCASE_NUM, TEXT_MAX_LENGTH, TEXT_MIN_LENGTH);
 
         // 用自己准备的程序先把所有的cases的答案做出来
-        try {
-            answerTestCases(testCases, JUDGE_PROGRAM);
-        } catch (Exception e) {
-            log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, JUDGE_PROGRAM);
-            throw new Exception();
+        if (NEED_ANSWER) {
+            log.info("对数程序开始解答....");
+            try {
+                answerTestCases(testCases, JUDGE_PROGRAM);
+            } catch (Exception e) {
+                log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, JUDGE_PROGRAM);
+                throw new Exception();
+            }
         }
 
         // 遍历仓库下的所有学生学号命名的文件夹，在这些文件夹下面建好一个output文件夹，用于存放学生程序的输出结果文件

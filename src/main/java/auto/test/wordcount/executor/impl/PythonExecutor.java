@@ -15,6 +15,9 @@ import static auto.test.wordcount.utils.CmdUtil.cmd;
  * @since
  */
 public class PythonExecutor implements Executor {
+
+    private static final Logger log = LoggerFactory.getLogger(PythonExecutor.class);
+
     /**
      * 编译源文件
      *
@@ -35,11 +38,9 @@ public class PythonExecutor implements Executor {
         return "WordCount.py";
     }
 
-    private static final Logger log = LoggerFactory.getLogger(PythonExecutor.class);
-
     /**
      * @param mainFile Main方法的全路径
-     * @param input    测试用例参数 eg: -n input.txt
+     * @param input    测试用例参数 eg: input.txt output.txt
      * @return 测试用例的执行时间
      */
     @Override
@@ -48,16 +49,9 @@ public class PythonExecutor implements Executor {
         return python(mainFile, input);
     }
 
-    /*public static void main(String[] args) {
-        Executor executor = new PythonExecutor();
-
-         executor.exec("E:\\WordCountAutoTest\\test\\Main.py", "E:\\WordCountAutoTest\\test\\input.txt E:\\WordCountAutoTest\\test\\output.txt");
-
-    }*/
-
     /**
      * 执行Python程序
-     * python Main.py
+     * python WordCount.py input.txt output.txt
      */
     public long python(String mainFile, String input) {
         String cmd = PYTHON_EXE_LOCATION + " " + mainFile + " " + input.trim();

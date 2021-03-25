@@ -31,7 +31,7 @@ public class CmdUtil {
             if (!process.waitFor(timeout, TimeUnit.SECONDS)) {
                 process.destroy();
                 log.warn("time limited {}, over {}", cmd, timeout);
-                return Integer.MAX_VALUE;
+                return TIMEOUT_FLAG;
             }
             return System.currentTimeMillis() - start;
         } catch (InterruptedException | IOException e) {

@@ -6,12 +6,12 @@
 
 ## 支持的语言和开发进度
 
-| 语言   | 进度             |
+| 语言   | 版本             |
 | ------ | ---------------- |
-| Java   | 已测试并投入运行 |
-| C++    | 开发完毕，测试中 |
-| Python | 已测试并投入运行           |
-| NodeJS | 待开发           |
+| Java   | 1.8 |
+| C++    | 3.9.2 |
+| Python | gc++ 6.3.0           |
+| NodeJS | v10.15.3           |
 
 
 
@@ -132,7 +132,9 @@ git clone https://github.com/GreyZeng/WordCountAutoTest.git
 | 参数名称        | 备注                                                         |
 | --------------- | ------------------------------------------------------------ |
 | NEED_CLONE      | 设置为true，会不断重试clone代码仓库                          |
+| NEED_ANSWER      | true:表示使用对数程序解答一遍。 false：不使用对数程序解答                         |
 | PYTHON_EXE_LOCATION      | python.exe的绝对路径,例如：C:\\Program Files\\Python39\\python.exe                         |
+| NODEJS_EXE_LOCATION    | node.exe的绝对路径,例如：C:\\Program Files\\nodejs\\node.exe                         |
 | CLONE_URL       | 改成对应的地址，例如：https://github.com/kofyou/PersonalProject-Java.git |
 | JUDGE_PROGRAM   | 改成对数程序的绝对路径地址，例如："D:\\git\\WordCountAutoTest\\download\\judge" |
 | TESTCASE_NUM    | 默认测试用例的数量，默认10个                                 |
