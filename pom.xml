@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.snippets</groupId>
-    <artifactId>WordCountAutoTest</artifactId>
+    <artifactId>autotest</artifactId>
     <version>1.0</version>
 
-    <name>WordCountAutoTest</name>
+    <name>autotest</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
