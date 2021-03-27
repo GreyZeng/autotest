@@ -1,12 +1,13 @@
 package git.snippets.utils;
 
+import git.autotest.utils.GitUtil;
 import org.eclipse.jgit.api.errors.GitAPIException;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
 
-import static git.snippets.utils.FileUtil.generateEmptyFile;
+import static git.autotest.utils.FileUtil.generateEmptyFile;
 
 public class GitUtilTest {
 

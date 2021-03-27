@@ -172,7 +172,7 @@ git clone https://github.com/GreyZeng/WordCountAutoTest.git
 
 ## 源码地址
 
-[Github](https://github.com/GreyZeng/WordCountAutoTest)
+[Github](https://github.com/GreyZeng/autotest)
 
 
 

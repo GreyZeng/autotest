@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 
-import static git.snippets.generator.DataGenerator.generateContent;
-import static git.snippets.utils.FileUtil.*;
+import static git.autotest.generator.DataGenerator.generateContent;
+import static git.autotest.utils.FileUtil.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

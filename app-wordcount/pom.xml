@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>autotest</artifactId>
-        <groupId>git.snippets</groupId>
+        <groupId>git</groupId>
         <version>1.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>autotest-wordcount</artifactId>
-    <name>autotest-wordcount</name>
+    <name>${artifactId}</name>
     <dependencies>
         <dependency>
-            <groupId>git.snippets</groupId>
+            <groupId>git</groupId>
             <artifactId>autotest-core</artifactId>
             <version>1.0</version>
             <scope>compile</scope>
