@@ -11,10 +11,7 @@ import git.autotest.model.JudgeResult;
 import git.autotest.model.Result;
 import git.autotest.model.TestCase;
 import git.autotest.report.ReportData;
-import git.autotest.utils.CSVUtil;
-import git.autotest.utils.ClassUtils;
-import git.autotest.utils.FileUtil;
-import git.autotest.utils.GitUtil;
+import git.autotest.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,28 +28,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class Client {
     private static final Logger log = LoggerFactory.getLogger(Client.class);
-    // 默认测试用例的数量
-    private static final int TESTCASE_NUM = 10;
-    // 测试文本的最少字符数
-    private static final int TEXT_MIN_LENGTH = 100;
-    // 测试文本的最大字符数量
-    private static final int TEXT_MAX_LENGTH = 1000000;
-    // 是否需要对数程序解答，如果准备好了case和答案，则可以把这个选项设置为false
-    private static final boolean NEED_ANSWER = true;
-    // 是否需要克隆，如果设置为true，则会使用CLONE_URL到一个目录进行操作
-    // 如果设置为false，则会使用LOCAL_URI
-    private static final boolean NEED_CLONE = false;
-    // 需要clone的学生仓库地址
-    private static final String CLONE_URL = "https://github.com/kofyou/PersonalProject-Java.git";
-    // 本地准备好的仓库地址：例如: "D:\\git\\WordCountAutoTest\\download\\1615421924089\\PersonalProject-Java"
-    // 同时需要在这个仓库的父目录，即："D:\\git\\WordCountAutoTest\\download\\1615421924089" 新建两个文件夹，分别是cases和answers
-    // 并且在cases文件夹和answers文件夹准备好TESTCASE_NUM数量的测试用例和对应答案，文件名称从1.txt,2.txt ... n.txt 开始命名
-    // 比如TESTCASE_NUM = 3, 那么
-    // D:\\git\\WordCountAutoTest\\download\\1615421924089\\cases 下有三个txt文件: 1.txt, 2.txt, 3.txt
-    // D:\\git\\WordCountAutoTest\\download\\1615421924089\\answers 下也有三个txt文件，1.txt, 2.txt, 3.txt 分别对应cases下面的三个文件的答案
-    private static final String LOCAL_URI = "C:\\git\\autotest\\download\\1616838383549\\PersonalProject-Java";
-
-    private static final String JUDGE_PROGRAM = "C:\\git\\autotest\\download\\judge";
 
     /**
      * 在download文件夹下新建一个以当前时间戳为文件名的文件夹，然后把项目克隆到这个目录
@@ -101,18 +76,19 @@ public class Client {
     public static void main(String[] args) throws Exception {
         // 克隆代码仓库
         // 由于网络原因，clone经常失败，可以先手动下载，如果要自动下载，则把needPath = true
-        String repo = preparePath(NEED_CLONE);
+        System.out.println(PropertyUtil.get("NEED_CLONE"));
+        String repo = preparePath(Boolean.parseBoolean((String) PropertyUtil.get("NEED_CLONE")));
 
         // 如果用例准备好了，请返回准备好的用例信息
-        Map<String, TestCase> testCases = generateTestCases(repo, TESTCASE_NUM, TEXT_MAX_LENGTH, TEXT_MIN_LENGTH);
+        Map<String, TestCase> testCases = generateTestCases(repo, Integer.parseInt((String) Objects.requireNonNull(PropertyUtil.get("TESTCASE_NUM"))), Integer.parseInt((String) Objects.requireNonNull(PropertyUtil.get("TEXT_MAX_LENGTH"))), Integer.parseInt((String) Objects.requireNonNull(PropertyUtil.get("TEXT_MIN_LENGTH"))));
 
         // 用自己准备的程序先把所有的cases的答案做出来
-        if (NEED_ANSWER) {
+        if (Boolean.parseBoolean((String) PropertyUtil.get("NEED_ANSWER"))) {
             log.info("对数程序开始解答....");
             try {
-                answerTestCases(testCases, JUDGE_PROGRAM);
+                answerTestCases(testCases, (String) PropertyUtil.get("JUDGE_PROGRAM"));
             } catch (Exception e) {
-                log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, JUDGE_PROGRAM);
+                log.error("对数器解答失败，请重新查看测试用例和对数程序 {} {}", testCases, PropertyUtil.get("JUDGE_PROGRAM"));
                 throw new Exception();
             }
         }
@@ -278,16 +254,15 @@ public class Client {
                 }
             }
         }
-
     }
 
     private static String preparePath(boolean needClone) {
         String repo;
         if (needClone) {
-            repo = clone(CLONE_URL);
+            repo = clone((String) PropertyUtil.get("CLONE_URL"));
         } else {
             // 手动下载，指定下载仓库的目录
-            repo = LOCAL_URI;
+            repo = (String) PropertyUtil.get("LOCAL_URI");
         }
         return repo;
     }

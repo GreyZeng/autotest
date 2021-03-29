@@ -2,6 +2,7 @@ package app.wordcount.executor;
 
 import git.autotest.executor.Executor;
 import git.autotest.utils.CmdUtil;
+import git.autotest.utils.PropertyUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,8 +17,6 @@ import org.slf4j.LoggerFactory;
 public class NodeJSExecutor implements Executor {
 
     private static final Logger log = LoggerFactory.getLogger(NodeJSExecutor.class);
-    public static final String NODEJS_EXE_LOCATION = "C:\\Program Files\\nodejs\\node.exe";
-
 
     /**
      * 编译源文件
@@ -55,7 +54,7 @@ public class NodeJSExecutor implements Executor {
      * node WordCount.js input.txt output.txt
      */
     public long nodeJS(String mainFile, String input) {
-        String cmd = NODEJS_EXE_LOCATION + " " + mainFile + " " + input.trim();
+        String cmd = PropertyUtil.get("NODEJS_EXE_LOCATION") + " " + mainFile + " " + input.trim();
         log.info("begin to exec {}", cmd);
         return CmdUtil.cmd(cmd, 120);
     }

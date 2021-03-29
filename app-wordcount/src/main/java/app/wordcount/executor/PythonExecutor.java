@@ -2,6 +2,7 @@ package app.wordcount.executor;
 
 import git.autotest.executor.Executor;
 import git.autotest.utils.CmdUtil;
+import git.autotest.utils.PropertyUtil;
 import org.slf4j.Logger;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -17,9 +18,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 public class PythonExecutor implements Executor {
 
     private static final Logger log = getLogger(PythonExecutor.class);
-
-    // Python的绝对路径(必须要指定)
-    public static final String PYTHON_EXE_LOCATION = "C:\\Program Files\\Python39\\python.exe";
+ 
 
     /**
      * 编译源文件
@@ -57,7 +56,7 @@ public class PythonExecutor implements Executor {
      * python WordCount.py input.txt output.txt
      */
     public long python(String mainFile, String input) {
-        String cmd = PYTHON_EXE_LOCATION + " " + mainFile + " " + input.trim();
+        String cmd = (String) PropertyUtil.get("PYTHON_EXE_LOCATION") + " " + mainFile + " " + input.trim();
         log.info("begin to exec {}", cmd);
         return CmdUtil.cmd(cmd, 120);
     }
