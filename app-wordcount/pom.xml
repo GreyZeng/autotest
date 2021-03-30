@@ -9,7 +9,7 @@
         <version>1.0</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>autotest-wordcount</artifactId>
+    <artifactId>app-wordcount</artifactId>
     <name>${artifactId}</name>
     <dependencies>
         <dependency>
