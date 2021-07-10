@@ -1,4 +1,35 @@
-本自动化测试的程序用于自动化测试[WordCount作业](https://edu.cnblogs.com/campus/fzu/FZUSESPR21/homework/11672)，采用Java开发（基于jdk1.8+），基于Maven来管理项目。
+自动化测试框架可以用于
+- 自动克隆项目
+- 编译项目
+- 执行项目
+- 评分（需要实现自定义接口）
+- 性能测试（需要规定在同一个人的电脑上执行所有同学的程序，否则会因为电脑配置不一样导致结果不一样）
+- 生成CSV格式报表（需要实现自定义接口）
+- 查重（需要申请moss账户，且只支持特定的语言：c, cc, java, ml, pascal, ada,lisp, schema, haskell, fortran, ascii, vhdl, perl, matlab, python, mips, prolog, spice, vb, csharp, modula2, a8086, javascript,plsql)
+
+
+目前，项目代码已经分好模块，不仅可以测试WordCount作业，对于固定输入输出的个人作业都可以支持，不过有了自动化测试工具，助教还需要做的事情是：
+
+0. 作业要求中必须规定好语言版本，如果要支持查重，语言只能限制在moss支持的语言列表中。
+1. 自己实现一版个人作业作为对数器。
+2. 自己写一个程序来自动生成测试数据，因为每个个人作业的要求不一样，自动化框架无法对每种程序都生成测试数据，目前只支持生成按规则生成随机的字符串测试集。
+3. 要制定评分规则（自动化框架已经预留了接口，实现Judge接口即可）
+4. 制定最后报表的格式（自动化框架已经预留了接口，实现ReportData接口即可）
+5. 申请一个moss账号，用于查重，具体可见：[Use MOSS On Your Computer- 如何使用MOSS代码剽窃检测系统](https://zhuanlan.zhihu.com/p/51875240)
+
+
+
+## 代码结构说明
+
+- autotest
+    - autotest-core  
+      > 框架核心代码，预留接口以及扩展点，常用工具类
+    - app-wordcount
+      > wordcount作业测试项目，实现了wordcount测试的数据集准备，评分规则，导出csv报表规则，这个模块依赖于autotest-core
+    
+后续每次增加一个个人作业，都可以以app-wordcount为例，新建一个maven模块，命名为: app-xxx，其中xxx就是个人作业的具体名称。这个app-xxx模块依赖autotest-core模块，实现其接口即可。
+
+下面以自动化测试[WordCount作业](https://edu.cnblogs.com/campus/fzu/FZUSESPR21/homework/11672)为例，来说明如何使用自动化测试框架
 
 ## 支持的语言
 
@@ -24,13 +55,13 @@
 - 可以生成指定长度的随机ASCII码字符串
 - 可以将我们指定长度的测试数据写入指定位置的指定数量的文本文件中，这些文本文件将作为后续的测试用例文件。
 
+注：这里针对不同的项目需要生成的测试数据不一样，wordcount需要生成的数据
+
 ### 编译
 
 这里的编译和以下的运行都是有如下两个前置要求：
 
-1.
-
-作业中必须明确要求入口文件的文件名是什么，以Java为例，就是Main方法所在的类文件的文件名是什么，以WordCount作业为例，我们要求学生的主函数必须定义在src目录下一个名叫WordCount.java文件中，因为这样我们才知道要运行哪个文件来执行测试用例。
+1. 作业中必须明确要求入口文件的文件名是什么，以Java为例，就是Main方法所在的类文件的文件名是什么，以WordCount作业为例，我们要求学生的主函数必须定义在src目录下一个名叫WordCount.java文件中，因为这样我们才知道要运行哪个文件来执行测试用例。
 
 2. 助教在自己机器上运行的时候，必须要有对应语言的编译和运行的环境且要规定好一致的语言版本。否则编译这一关会有很多问题导致无法运行学生的代码。
 
@@ -166,11 +197,19 @@ JUDGE_PROGRAM=C:\\git\\autotest\\download\\judge
 | download/时间戳/result/result.csv                 | 本次测评的csv文件                    |
 | WordCountAutoTest\log                             | 日志记录文件夹                       |
 
-## 待完善的功能
+## 查重
 
-- 代码雷同部分，尝试接入[moss](http://theory.stanford.edu/~aiken/moss/) 。
-- 防止代码里面修改服务器文件，恶意运行多线程 ，参考[Judger](https://github.com/QingdaoU/Judger) 。
+使用的是[moss](http://theory.stanford.edu/~aiken/moss/) 组件，需要申请一个moss账号
+
+使用方法，参考：
+
+QuickStart.java
+
+
+
 
 ## 源码地址
 
 [Github](https://github.com/GreyZeng/autotest)
+
+[CSDN](https://codechina.csdn.net/hotonyhui/autotest)
