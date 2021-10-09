@@ -8,7 +8,7 @@
 - 查重（需要申请moss账户，且只支持特定的语言：c, cc, java, ml, pascal, ada,lisp, schema, haskell, fortran, ascii, vhdl, perl, matlab, python, mips, prolog, spice, vb, csharp, modula2, a8086, javascript,plsql)
 
 
-目前，项目代码已经分好模块，不仅可以测试WordCount作业，对于固定输入输出的个人作业都可以支持，不过有了自动化测试工具，助教还需要做的事情是：
+目前，项目代码已经分好模块，不仅可以测试[WordCount作业](https://edu.cnblogs.com/campus/fzu/FZUSESPR21/homework/11672)，对于固定输入输出的个人作业都可以支持，不过有了自动化测试工具，助教还需要做的事情是：
 
 0. 作业要求中必须规定好语言版本，如果要支持查重，语言只能限制在moss支持的语言列表中。
 1. 自己实现一版个人作业作为对数器。
