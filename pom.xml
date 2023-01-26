@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <hutool.version>5.8.3</hutool.version>
+        <hutool.version>5.8.11</hutool.version>
         <jgit.version>6.2.0.202206071550-r</jgit.version>
         <fastjson.version>2.0.10</fastjson.version>
         <slf4j-log4j12.version>1.7.36</slf4j-log4j12.version>
