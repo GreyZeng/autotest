@@ -19,17 +19,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <hutool.version>5.8.11</hutool.version>
+        <hutool.version>5.8.18</hutool.version>
         <jgit.version>6.6.1.202309021850-r</jgit.version>
-        <fastjson.version>2.0.10</fastjson.version>
-        <slf4j-log4j12.version>1.7.36</slf4j-log4j12.version>
+        <fastjson.version>2.0.32</fastjson.version>
+        <slf4j-log4j12.version>2.0.5</slf4j-log4j12.version>
         <jsch.version>0.1.55</jsch.version>
         <commons-csv.version>1.9.0</commons-csv.version>
         <commons-cli.version>1.5.0</commons-cli.version>
         <commons-io.version>2.11.0</commons-io.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <annotations.version>3.0.1</annotations.version>
-        <junit-jupiter-api.version>5.9.0</junit-jupiter-api.version>
+        <junit-jupiter-api.version>5.9.2</junit-jupiter-api.version>
     </properties>
 
     <dependencies>
